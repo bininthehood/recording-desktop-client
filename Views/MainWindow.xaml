@@ -1,0 +1,115 @@
+﻿<Controls:MetroWindow
+    x:Class="RecordClient.Views.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:oxy="http://oxyplot.org/wpf"
+    xmlns:av="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
+    xmlns:pages="clr-namespace:RecordClient.Views"
+    xmlns:modules="clr-namespace:RecordClient.Views.Controls.Modules"
+    mc:Ignorable="av"
+    
+    Title="Voice Log"
+    FontFamily="Noto Sans KR"
+    Width="375"
+    SizeToContent="Height"
+    Icon="/Resources/Images/logo.ico"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    ShowTitleBar="False"
+    TitleBarHeight="0"
+    ResizeMode="NoResize"
+    BorderThickness="0"
+    AllowsTransparency="True"
+    Loaded="MainWindow_Loaded"
+    SizeChanged="MetroWindow_SizeChanged"
+    BorderBrush="Transparent"
+    Background="Transparent"
+    Cursor="Arrow"
+    FontSize="12">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <!-- 상단바 -->
+        <Grid Grid.Row="0" x:Name="Header" Background="#FF101014" MouseLeftButtonDown="Grid_MouseLeftButtonDown" Cursor="Arrow" Height="25">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30" />
+                <ColumnDefinition Width="Auto" MinWidth="165"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0" Source="/Resources/Images/logo.ico" Width="24" RenderOptions.BitmapScalingMode="HighQuality" HorizontalAlignment="Center"/>
+            
+            <Label Grid.Column="1" VerticalAlignment="Center" Content="VOICE LOG" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Width="152" FontSize="10" FontWeight="Bold" FontFamily="Noto Sans KR" Height="25"/>
+
+            <!-- 설정 버튼 -->
+            <Button x:Name="MenuButton"
+                Grid.Column="3"
+                Style="{StaticResource TopButtonStyle}"
+                Background="Transparent"
+                BorderThickness="0"
+                Click="MenuButton_Click"
+                Width="25"
+                HorizontalAlignment="Center"
+                Margin="0,-1,0,0">
+                <Image Source="/Resources/Images/down_arrow_white.png"
+                   RenderOptions.BitmapScalingMode="HighQuality"
+                   Stretch="Fill" Width="19"/>
+            </Button>
+            
+            <!-- 최소화 버튼 -->
+            <Button Grid.Column="4" Style="{StaticResource TopButtonStyle}" Background="Transparent" BorderThickness="0" Click="MinimizeButton_Click" Margin="0,0,2,0" Width="25" HorizontalAlignment="Center">
+                <Image Source="/Resources/Images/minimize.png" Stretch="Uniform" Width="10"/>
+            </Button>
+
+            <!-- 최대화 버튼 -->
+             <!--<Button Grid.Column="5" Background="Transparent" BorderThickness="0" Click="MaximizeButton_Click" Margin="0,-1,5,0" Width="24">
+                <Image Source="/Resources/Images/maximize.png" Stretch="Uniform" Width="10"/>
+            </Button>--> 
+
+            <!-- 닫기 버튼 -->
+            <Button Grid.Column="5" Style="{StaticResource TopButtonStyle}" Background="Transparent" BorderThickness="0" Click="CloseButton_Click" Width="25" HorizontalAlignment="Center" Margin="0,-1,0,0">
+                <Image Source="/Resources/Images/close.png" Stretch="Uniform" Width="10"/>
+            </Button>
+
+        </Grid>
+
+        <ContentControl Grid.Row="1" x:Name="MainContentHost" Panel.ZIndex="1"/>
+
+        <!-- Toast 오버레이  -->
+        <ItemsControl x:Name="ToastLayer" Grid.Row="1"
+          VerticalAlignment="Top"
+          HorizontalAlignment="Center"
+          Panel.ZIndex="999"
+          IsHitTestVisible="False" Margin="0,-20,0,0">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Vertical" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
+
+        <Grid x:Name="PopupOverlay" Grid.Row="1"
+          Visibility="Collapsed"
+          HorizontalAlignment="Stretch"
+          VerticalAlignment="Stretch"
+          Panel.ZIndex="100" Margin="0,0,0,0">
+
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                <modules:SettingsPopup x:Name="SettingsPopupControl" Width="375" Height="Auto" />
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+
+</Controls:MetroWindow>

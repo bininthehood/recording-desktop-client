@@ -1,0 +1,30 @@
+﻿<Application x:Class="RecordClient.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:tb="http://www.hardcodet.net/taskbar">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Light.Blue.xaml" />
+                
+                <ResourceDictionary Source="/Views/Style/CustomStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <!-- 트레이 ContextMenu 정의 -->
+            <ContextMenu x:Key="TrayContextMenu">
+                <MenuItem Header="프로그램 열기" Click="TrayMenu_Open_Click"/>
+                <Separator/>
+                <MenuItem Header="종료" Click="TrayMenu_Exit_Click"/>
+            </ContextMenu>
+            <!-- 트레이 아이콘 정의 -->
+            <tb:TaskbarIcon x:Key="TrayIcon"
+                ToolTipText="VoiceLog"
+                ContextMenu="{StaticResource TrayContextMenu}"
+                IconSource="/Resources/Images/logo.ico"
+                Visibility="Visible"
+                TrayMouseDoubleClick="TrayMenu_Open_Click" />
+        </ResourceDictionary>
+    </Application.Resources>
+
+</Application>

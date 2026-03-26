@@ -1,0 +1,118 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>logo2.ico</ApplicationIcon>
+    <PlatformTarget>x64</PlatformTarget>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>False</Optimize>
+  </PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<Optimize>False</Optimize>
+	</PropertyGroup>
+	
+	<PropertyGroup>
+		<StartupObject>RecordClient.Program</StartupObject>
+	</PropertyGroup>
+
+
+	<ItemGroup>
+    <None Remove="Resources\Images\chat_red.png" />
+    <None Remove="Resources\Images\chat_white.png" />
+    <None Remove="Resources\Images\check.png" />
+    <None Remove="Resources\Images\check_16x16.png" />
+    <None Remove="Resources\Images\close_black.png" />
+    <None Remove="Resources\Images\down_arrow_white.png" />
+    <None Remove="Resources\Images\enter_white.png" />
+    <None Remove="Resources\Images\error.png" />
+    <None Remove="Resources\Images\error_16x16.png" />
+    <None Remove="Resources\Images\record_white.png" />
+    <None Remove="Resources\Images\setting_red.png" />
+    <None Remove="Resources\Images\setting_white.png" />
+    <None Remove="Resources\Images\speaker_white.png" />
+    <None Remove="Resources\Images\square_white.png" />
+    <None Remove="Resources\Images\success.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\chat_red.png" />
+    <Resource Include="Resources\Images\chat_white.png" />
+    <Resource Include="Resources\Images\down_arrow_white.png" />
+    <Resource Include="Resources\Images\enter_white.png" />
+    <Resource Include="Resources\Images\headphone_white.png" />
+    <Resource Include="Resources\Images\mic_white.png" />
+    <Resource Include="Resources\Images\headphone_red.png" />
+    <Resource Include="Resources\Images\mic_red.png" />
+    <Resource Include="Resources\Images\check.png" />
+    <Resource Include="Resources\Images\check_16x16.png" />
+    <Resource Include="Resources\Images\close_black.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="logo2.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\error.png" />
+    <Resource Include="Resources\Images\error_16x16.png" />
+    <Resource Include="Resources\Images\maximize.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AudioSwitcher.AudioApi" Version="4.0.0-alpha5" />
+    <PackageReference Include="AudioSwitcher.AudioApi.CoreAudio" Version="4.0.0-alpha5" />
+    <PackageReference Include="Hardcodet.Wpf.TaskbarNotification" Version="1.0.5" />
+	<PackageReference Include="LiveChartsCore" Version="2.0.0-rc5.4" />
+    <PackageReference Include="LiveChartsCore.SkiaSharpView" Version="2.0.0-rc5.4" />
+    <PackageReference Include="LiveChartsCore.SkiaSharpView.WPF" Version="2.0.0-rc5.4" />
+    <PackageReference Include="MahApps.Metro" Version="2.4.10" />
+    <PackageReference Include="NAudio" Version="2.2.1" />
+    <PackageReference Include="NAudio.Lame" Version="2.1.0" />
+    <PackageReference Include="Notifications.Wpf" Version="0.1.1" />
+    <PackageReference Include="OxyPlot.wpf" Version="2.2.0" />
+    <PackageReference Include="SkiaSharp" Version="3.116.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\close.png" />
+    <Resource Include="Resources\Images\logo.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\minimize.png" />
+    <Resource Include="Resources\Images\record_white.png" />
+    <Resource Include="Resources\Images\setting_red.png" />
+    <Resource Include="Resources\Images\setting_white.png" />
+    <Resource Include="Resources\Images\speaker_white.png" />
+    <Resource Include="Resources\Images\square_white.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- 공개용 포트폴리오 정리본에서는 내부 설정 파일 및 로컬 DB를 포함하지 않음 -->
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+	
+
+
+</Project>

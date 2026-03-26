@@ -1,0 +1,45 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="TextBoxCommonStyle" TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Background" Value="#FFFFFF"/>
+        <Setter Property="Padding" Value="2"/>
+        <Setter Property="FontFamily" Value="Noto Sans KR"/>
+        <Setter Property="TextAlignment" Value="Left"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="Height" Value="30px"/>
+        <Setter Property="Padding" Value="5,0,5,0"/>
+    </Style>
+
+    <Style x:Key="PasswordBoxCommonStyle" TargetType="PasswordBox" BasedOn="{StaticResource {x:Type PasswordBox}}">
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Background" Value="#FFFFFF"/>
+        <Setter Property="Padding" Value="2"/>
+        <Setter Property="FontFamily" Value="Noto Sans KR"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="Height" Value="30px"/>
+        <Setter Property="Padding" Value="5,0,5,0"/>
+    </Style>
+
+    <Style x:Key="ButtonCommonStyle" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Background" Value="#ED7268"/>
+        <Setter Property="Padding" Value="2"/>
+        <Setter Property="FontFamily" Value="Noto Sans KR"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="Height" Value="30px"/>
+        <Setter Property="Foreground" Value="#FFFFFF"/>
+        <Setter Property="Cursor" Value="Hand"/>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#D85F59"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>
